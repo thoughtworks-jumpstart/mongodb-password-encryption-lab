@@ -5,7 +5,9 @@ lab for password encryption
 ## Lab 1
 
 1. In this lab, you will practice simple signup and login.
-2. create simpleSignUp and simpleLogin function
+2. create file src/account.js
+3. create model for User
+4. create simpleSignUp and simpleLogin function
 
 ## Lab 2
 
@@ -15,7 +17,7 @@ lab for password encryption
 ## Lab 3
 
 1. This lab focus on hashing password with secret
-2. create hashWithSecretSignUp and hashWithLogin Function
+2. create hashWithSecretSignUp and hashWithSecretLogin Function, use "abcdefg" as secret
 
 ## Lab 4
 
