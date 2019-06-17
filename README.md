@@ -5,7 +5,7 @@ lab for password encryption
 ## Lab 1
 
 1. In this lab, you will practice simple signup and login.
-2. create simpleSignUp and simpleLogin funciton
+2. create simpleSignUp and simpleLogin function
 
 ## Lab 2
 
