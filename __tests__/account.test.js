@@ -33,6 +33,7 @@ describe('insert', () => {
       user = { username, password };
     });
 
+    // Lab 1
     describe('simple strategy', () => {
       it('signup should store the username and password into the database', async () => {
         const newUser = { username: 'John Smith', password: 'secret' };
@@ -51,7 +52,8 @@ describe('insert', () => {
       });
     });
 
-    describe('hash', () => {
+    // Lab 2
+    xdescribe('hash', () => {
       const cryptoAlgo = 'sha256';
       let hash, digest, userWithDigest;
 
@@ -80,7 +82,8 @@ describe('insert', () => {
       });
     });
 
-    describe('hash with secret', () => {
+    // Lab 3
+    xdescribe('hash with secret', () => {
       const appHashSecret = 'abcdefg';
 
       it('should sign up with with hash password with secret', async () => {
@@ -101,6 +104,7 @@ describe('insert', () => {
         expect(foundUser).toMatchObject(foundUser);
       });
 
+      // Lab 4
       it('should login with hash password and secret', async () => {
         await account.hashWithSecretSignUp(user);
         const loginedUser = await account.hashWithSecretLogin(user);
@@ -109,7 +113,8 @@ describe('insert', () => {
       });
     });
 
-    describe('hash with salt', () => {
+    // Lab 5
+    xdescribe('hash with salt', () => {
       it('should save username and password with random salt', async () => {
         const createdUser = await account.hashSaltSignUp(user);
 
@@ -138,6 +143,22 @@ describe('insert', () => {
           password: 'wrong password',
         });
         expect(loginedUser).toBeFalsy();
+      });
+    });
+
+    // lab 6
+    xdescribe('bcrypt', () => {
+      it('should be able to login and logout', async () => {
+        console.log(await account.bcryptSignup(user));
+        const signinUser = await account.bcryptLogin(user);
+        expect(signinUser.username).toEqual(user.username);
+      });
+
+      it('should not be able to login if wrong password', async () => {
+        await account.bcryptSignup(user);
+        user.password = 'wrong password';
+        const signinUser = await account.bcryptLogin(user);
+        expect(signinUser).toBeFalsy();
       });
     });
   });
